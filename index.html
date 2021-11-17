@@ -2,7 +2,7 @@
 <html lang="ja">
 
 <head>
-    <title>fukojoy</title>
+    <title>アンダーワールド</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +19,7 @@
     <header class="mb-3">
         <nav class="navbar navbar-dark bg-dark">
             <div class="container-fluid">
-                <span class="navbar-brand mb-0 h1">fukojoy</span>
+                <span class="navbar-brand mb-0 h1">アンダーワールド</span>
             </div>
         </nav>
     </header>
@@ -27,7 +27,7 @@
     <div class="container">
 
         <div class="alert alert-success mb-3" role="alert">
-            <p>自作差分一覧。次期難易度表フォーマット対応。</p>
+            <p>お気に入りの譜面集めた表。作成中</p>
             <p>難易度表の読み込みと表示に数秒かかります。</p>
             <hr>
             <p class="mb-0">-2：★10未満, -1：★10～17, 0：★18～20, 1以降：★★基準</p>
@@ -55,7 +55,7 @@
                 var obj = $("#table_int");
 
                 obj.html("");
-                $("<thead class='table-dark'><tr><th>Level</th><th>Title</th><th>Artist</th><th>差分</th><th>BPM</th><th>Notes</th><th>Comment</th></tr></thead><tbody>")
+                $("<thead class='table-dark'><tr><th>Level</th><th>Title</th><th>Artist</th><th>BPM</th><th>Notes</th><th>譜面傾向</th><th>Comment</th></tr></thead><tbody>")
                     .appendTo(obj);
                 var obj_sep = null;
                 for (var i = 0; i < info.length; i++) {
@@ -84,9 +84,6 @@
 
                     // Artist
                     $("<td width='20%'>" + info[i].artist + "</td>").appendTo(str);
-
-                    // 差分
-                    $("<td width='5%'>" + "<a href='" + info[i].chart + "' target='_blank'>DL</a></td>").appendTo(str);
                     
                     // BPM
                     $("<td width='5%'>" + info[i].bpm + "</td>").appendTo(str);
@@ -94,8 +91,11 @@
                     // Notes
                     $("<td width='5%'>" + info[i].notes + "</td>").appendTo(str);
                     
+                    // 譜面傾向
+                    $("<td width='15%'>" + info[i].type + "</td>").appendTo(str);
+                                        
                     // Comment
-                    $("<td width='25%'>" + info[i].comment + "</td>").appendTo(str);
+                    $("<td width='15%'>" + info[i].comment + "</td>").appendTo(str);
                     str.appendTo(obj);
                     count++;
 
